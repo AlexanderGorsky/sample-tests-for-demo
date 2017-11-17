@@ -42,8 +42,8 @@
 
         <dependency>
             <groupId>com.epam.jira</groupId>
-            <artifactId>test-management</artifactId>
-            <version>1.6</version>
+            <artifactId>test-management-adapter</artifactId>
+            <version>1.7</version>
         </dependency>
 
         <dependency>

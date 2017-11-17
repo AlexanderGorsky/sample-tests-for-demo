@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-public class FourthSampleTest {
+public class FailedConfigSampleTest {
 
     @BeforeClass
     public void failedInit() {

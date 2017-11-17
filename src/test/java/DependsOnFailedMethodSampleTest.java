@@ -1,29 +1,26 @@
 import com.epam.jira.JIRATestKey;
-import com.epam.jira.util.JiraInfoProvider;
 import com.epam.jira.testng.ExecutionListener;
+import com.epam.jira.testng.RetryAnalyzer;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.util.Random;
 
 @Listeners(ExecutionListener.class)
-public class FirstSampleTest {
+public class DependsOnFailedMethodSampleTest {
     private final Random random = new Random();
 
 
-    @Test ()
-    public void fakeMethod() {
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void alwaysFailedMethod() {
         Assert.assertTrue(false);
-
     }
 
-    @Test (dependsOnMethods = "fakeMethod")
+    @Test (dependsOnMethods = "alwaysFailedMethod")
     @JIRATestKey(key = "EPMFARMATS-826")
     public void testMethod() {
-        boolean r = random.nextBoolean();
-        Assert.assertTrue(r);
+        Assert.assertTrue(random.nextBoolean());
 
     }
 
